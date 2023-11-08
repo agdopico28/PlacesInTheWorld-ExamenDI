@@ -80,41 +80,41 @@ data class CardData( //la clase principal
 fun getCardData(): List<CardData> {//rellenamos los valores que despues vamos a utilizar
     return listOf(
         CardData(
-            "image",
+            "Morella",
             R.drawable.image,
         ),
         CardData(
-            "image1",
+            "Lugo",
             R.drawable.image1,
         ),
         CardData(
-            "image2",
+            "Bangkok",
             R.drawable.image2,
         ),
         CardData(
-            "image3",
+            "Perú",
 
             R.drawable.image3,
         ),
         CardData(
-            "image4",
+            "Pekín",
             R.drawable.image4,
         ),
         CardData(
-            "image5",
+            "Granada",
             R.drawable.image5,
         ),
 
         CardData(
-            "image6",
+            "Atenas",
             R.drawable.image6,
         ),
         CardData(
-            "image7",
+            "Yucatán",
             R.drawable.image7,
         ),
         CardData(
-            "image8",
+            "Seychelles",
             R.drawable.image8,
         ),
     )

@@ -48,7 +48,7 @@ fun Ammpliacion(navControllerName:String, navControllerImagen: Int, navControlle
                 Text(
                     text = textContacto,
                     fontFamily = FontTitle,
-                    fontSize = 43.sp,
+                    fontSize = 50.sp,
                     color = Color.White,
 
                 )
