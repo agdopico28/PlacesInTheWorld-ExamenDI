@@ -18,6 +18,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -26,8 +27,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
+import com.example.placesintheworldexamendi.ui.theme.BlueBotton
 import com.example.placesintheworldexamendi.ui.theme.BlueI
 import com.example.placesintheworldexamendi.ui.theme.FontTitle
+import java.security.Principal
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
@@ -35,34 +38,46 @@ import com.example.placesintheworldexamendi.ui.theme.FontTitle
 fun Ammpliacion(navControllerName:String, navControllerImagen: Int, navController: NavHostController){
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val textContacto = navBackStackEntry?.arguments?.getString("textoContacto") ?: ""
+    val colorStops = arrayOf(
+        0.2f to BlueI,
+        1f to BlueBotton
+    )
     Scaffold(
         topBar = { MyTopAppBar(navHostController = navController) }
     ) {
-        Column {
-            Box(
+            Column(
                 modifier= Modifier
-                    .fillMaxWidth().background(BlueI)
-                    .padding(top = 60.dp), contentAlignment = Alignment.Center
+                    .fillMaxSize()
+                    .background(
+                        Brush.verticalGradient(colorStops = colorStops)
+                    )
+                    .padding(top = 60.dp),
+                horizontalAlignment = Alignment.CenterHorizontally
             )
             {
-                Text(
-                    text = textContacto,
-                    fontFamily = FontTitle,
-                    fontSize = 50.sp,
-                    color = Color.White,
+                Column (horizontalAlignment = Alignment.CenterHorizontally) {
+                    Text(
+                        text = textContacto,
+                        fontFamily = FontTitle,
+                        fontSize = 50.sp,
+                        color = Color.White,
 
-                )
+                        )
+                }
 
-            }
+
 
                 Image(
                     painter = painterResource(id = navControllerImagen),
                     contentDescription = null,
-                    modifier = Modifier.fillMaxSize(),
-                    contentScale = ContentScale.Crop
+//                    contentScale = ContentScale.Crop
                 )
+
             }
-        }
+
+
+    }
+
 
 
 

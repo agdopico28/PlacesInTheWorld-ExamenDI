@@ -39,6 +39,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -124,9 +125,12 @@ fun getCardData(): List<CardData> {//rellenamos los valores que despues vamos a 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ItemCard(cardData: CardData, navHostController: NavHostController) {
+
+
     Box(
         Modifier
             .fillMaxSize()
+
             .clickable { navHostController.navigate("Ampliacion/${cardData.name}/${cardData.photo}") },
         //elevation = CardDefaults.cardElevation(10.dp)
     )
